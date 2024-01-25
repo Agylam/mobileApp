@@ -1,0 +1,8 @@
+{
+  "appId": "ru.voblake.app",
+  "appName": "В-облаке.рф",
+  "webDir": "dist",
+  "server": {
+    "androidScheme": "https"
+  }
+}
