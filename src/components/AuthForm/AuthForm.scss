@@ -1,0 +1,29 @@
+div.auth_form {
+  display: flex;
+  flex-direction: column;
+  width: 23rem;
+
+  input {
+    width: 21rem;
+
+    &:first-child {
+      margin-top: 4.5vh;
+    }
+  }
+
+  button {
+    border: none;
+    margin: 3% 0;
+  }
+
+  div.auth_links {
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+
+    a.auth_link {
+      text-decoration: none;
+      color: var(--text-text);
+    }
+  }
+}
