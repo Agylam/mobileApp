@@ -3,15 +3,20 @@ button.button {
   border: none;
   border-radius: 12px;
   color: #fff;
-  font-weight: 600;
-  font-size: 20px;
-  padding: 12px;
+  font-weight: 500;
   background: var(--blue-light);
   transition: background 0.3s ease;
   cursor: pointer;
+  padding: 0.45rem 1.5rem;
+  font-size: 1.23rem;
 
   &:hover {
     background: var(--blue-dark);
+  }
+
+  &.button_danger {
+    background: var(--red-light-red);
+    color: var(--red-red);
   }
 
 }

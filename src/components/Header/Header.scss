@@ -1,0 +1,24 @@
+div.header {
+    display: flex;
+    justify-content: space-between;
+
+    .header_left {
+        .header_title {
+            margin: 0;
+            font-size: 2.5rem;
+            font-weight: 600;
+        }
+
+        .header_date {
+            margin: 0.5rem 0 0;
+            font-weight: 300;
+            color: var(--blue-light)
+        }
+    }
+
+    .header_right {
+        button {
+            margin-top: 0.75rem;
+        }
+    }
+}

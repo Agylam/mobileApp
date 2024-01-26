@@ -1,17 +1,17 @@
 .main_page {
-  width: 100%;
-  height: 100%;
-  background: var(--surface-background);
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-
-  img.fullLogo {
-    position: absolute;
-    height: 9vh;
     width: 100%;
-    top: 15vh;
-  }
+    height: 100%;
+    background: var(--surface-background);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    img.fullLogo {
+        position: absolute;
+        height: 9vh;
+        width: 100%;
+        top: 15vh;
+    }
 
 }
