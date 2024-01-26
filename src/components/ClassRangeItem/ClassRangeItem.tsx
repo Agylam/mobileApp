@@ -4,12 +4,25 @@ import {ApiClassRange} from "../../interfaces/api/ClassRange.ts";
 
 interface ClassRangeItemProps {
     classRange: ApiClassRange;
+    active: boolean;
+    onClick: () => void;
 }
 
 export const ClassRangeItem = (props: PropsWithoutRef<ClassRangeItemProps>) => {
+    let className = "classrange_item";
+    if (props.active) {
+        className += " classrange_item_active";
+    }
+
     return (
-        <div className="classrange_item">
-            <p className="classrange_name">{props.classRange.name}</p>
+        <div className={className}>
+            <a
+                className="classrange_name"
+                onClick={props.onClick}
+                href="#"
+            >
+                {props.classRange.name}
+            </a>
         </div>
     );
 };
