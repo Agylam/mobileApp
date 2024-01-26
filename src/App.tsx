@@ -1,19 +1,19 @@
 import {BrowserRouter, Route, Routes} from "react-router-dom";
 import {Main} from "./pages/Main/Main.tsx";
 import React from "react";
-import "./App.scss"
 import {Schedule} from "./pages/Schedule/Schedule.tsx";
+import {MainContainer} from "./components/MainContainer/MainContainer.tsx";
 
 function App() {
     return (
-        <>
+        <MainContainer>
             <BrowserRouter>
                 <Routes>
                     <Route path="/" element={<Main/>}/>
                     <Route path="/schedule" element={<Schedule/>}/>
                 </Routes>
             </BrowserRouter>
-        </>
+        </MainContainer>
     )
 }
 
