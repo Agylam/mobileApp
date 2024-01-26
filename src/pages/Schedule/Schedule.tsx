@@ -8,8 +8,8 @@ export const Schedule = () => {
         <div className="schedule_page">
             <div className="schedule_top">
                 <Header/>
-                <Timer/>
-                <Timer/>
+                <Timer estimated_time="5 минут" title="До конца урока"/>
+                <Timer estimated_time="20 минут" title="До следующего урока" isDanger={true}/>
             </div>
             <div className="schedule_bottom">
                 <ClassRanges/>

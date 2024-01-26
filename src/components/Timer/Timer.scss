@@ -9,14 +9,26 @@ div.timer {
     }
 
     p.timer_name {
-        font-weight: 300;
-        margin-top: 0.75rem;
+        font-weight: 200;
+        margin-top: 0.5rem;
         margin-bottom: 0;
     }
 
     p.estimated_time {
-        font-size: 3.5rem;
-        margin: 0.25rem 0 1rem;
+        font-size: 2.5rem;
+        margin: 0.25rem 0 0.5rem;
         font-weight: 700;
+    }
+
+    &.timer_danger {
+        background: var(--red-light-red);
+
+        p {
+            color: var(--red-red);
+        }
+
+        p.timer_name {
+            font-weight: 500;
+        }
     }
 }

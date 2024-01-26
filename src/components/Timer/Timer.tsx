@@ -1,10 +1,21 @@
 import "./Timer.scss"
+import {PropsWithoutRef} from "react";
 
-export const Timer = () => {
+interface TimerProps {
+    title: string;
+    estimated_time: string;
+    isDanger?: boolean;
+}
+
+export const Timer = (props: PropsWithoutRef<TimerProps>) => {
+    let btnClass = "timer";
+    if (props.isDanger) {
+        btnClass += " timer_danger";
+    }
     return (
-        <div className="timer">
-            <p className="timer_name">До конца урока</p>
-            <p className="estimated_time">5 минут</p>
+        <div className={btnClass}>
+            <p className="timer_name">{props.title}</p>
+            <p className="estimated_time">{props.estimated_time}</p>
         </div>
     );
 };

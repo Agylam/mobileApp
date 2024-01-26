@@ -2,6 +2,7 @@ div.auth_form {
     display: flex;
     flex-direction: column;
     width: 23rem;
+    margin-bottom: 1rem;
 
     form#auth {
         display: flex;
@@ -30,7 +31,7 @@ div.auth_form {
         width: 100%;
         display: flex;
         justify-content: space-evenly;
-        margin-top: 2rem;
+        margin: 1.5rem 0;
 
         a.auth_link {
             text-decoration: none;
