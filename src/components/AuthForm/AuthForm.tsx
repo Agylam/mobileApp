@@ -2,6 +2,9 @@ import React, {useState} from "react";
 import "./AuthForm.scss"
 import Input from "../UI/Input";
 import Button from "../UI/Button";
+import {auth} from "../../api/auth.ts";
+import {useNavigate} from "react-router";
+import useLocalStorage from "use-local-storage";
 
 export const AuthForm = () => {
     const [email, setEmail] = useState("");
@@ -9,10 +12,19 @@ export const AuthForm = () => {
 
     const onChangeEmail = (e: React.ChangeEvent<HTMLInputElement>) => setEmail(e.target.value)
     const onChangePassword = (e: React.ChangeEvent<HTMLInputElement>) => setPassword(e.target.value)
+
+    const navigate = useNavigate();
+    const [_, setAccessToken] = useLocalStorage("accessToken", "");
+
     const onAuthSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
         try {
-            console.log("Попытка авторизации")
+            const response = await auth(email, password);
+            localStorage.accessToken = JSON.stringify(response.accessToken);
+            setTimeout(() => {
+                navigate("/schedule");
+                console.log("TM", localStorage.accessToken);
+            }, 1000);
         } catch (e) {
             console.error("AuthFrom error:", e);
         }

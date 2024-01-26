@@ -1,5 +1,6 @@
 import "./Header.scss"
 import Button from "../UI/Button";
+import {logOut} from "../../utils/logOut";
 
 export const Header = () => {
     return (
@@ -13,7 +14,7 @@ export const Header = () => {
                 </p>
             </div>
             <div className="header_right">
-                <Button isDanger={true}>
+                <Button isDanger={true} onClick={logOut}>
                     Выйти
                 </Button>
             </div>

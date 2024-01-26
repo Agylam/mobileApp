@@ -7,7 +7,7 @@ export enum HttpMethod {
 
 export const fetcher = (accessToken = "") => {
     return async <T = unknown>(uri: string, data = {}, method: HttpMethod = HttpMethod.GET): Promise<T> => {
-        const unparsed_response = await fetch("/api" + uri, {
+        const unparsed_response = await fetch(import.meta.env.VITE_BASE_API_URL + uri, {
             headers: {
                 "Content-Type": "application/json",
                 "Authorization": `Bearer ${accessToken}`
@@ -37,3 +37,5 @@ export const fetcher = (accessToken = "") => {
         return resp;
     };
 };
+
+export const apiFetcher = () => fetcher(JSON.parse(localStorage.getItem('acceccToken') || "\"\""))
