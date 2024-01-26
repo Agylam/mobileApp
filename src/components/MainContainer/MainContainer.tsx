@@ -1,4 +1,4 @@
-import React, {Suspense, useEffect} from "react";
+import React, {Suspense} from "react";
 import "./MainContainer.scss";
 import useLocalStorage from "use-local-storage";
 import {SWRConfig} from "swr";
@@ -20,20 +20,6 @@ export const MainContainer = (props: MainContainerProps) => {
 
     useJwtKeepAlive();
     const [accessToken] = useLocalStorage("accessToken", "");
-
-    useEffect(() => {
-        console.log("useLocalStorage token changed", accessToken);
-    }, [accessToken]);
-
-    useEffect(() => {
-        console.log("localStorage token changed", localStorage.accessToken);
-    }, [localStorage.accessToken]);
-
-    useEffect(() => {
-        console.log("localStorageFunc token changed", localStorage.getItem("accessToken"));
-    }, [localStorage.getItem("accessToken")]);
-
-
 
     return (
         <SWRDevTools>
