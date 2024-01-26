@@ -2,7 +2,7 @@ import "./Schedule.scss"
 import {Header} from "../../components/Header/Header.tsx";
 import {Timer} from "../../components/Timer/Timer.tsx";
 import {ClassRanges} from "../../components/ClassRanges/ClassRanges.tsx";
-import {useLayoutEffect, useMemo} from "react";
+import {useLayoutEffect, useMemo, useState} from "react";
 import {useGetClassRanges} from "../../hooks/useGetClassRanges.ts";
 import {useNavigate} from "react-router";
 import {useUserInfo} from "../../hooks/useUserInfo.ts";
@@ -28,12 +28,25 @@ export const Schedule = () => {
         }
     }, [classRanges.data, selectedClassRange]);
 
-    let dayOfWeek = 1,
-        iHours = 21,
-        iMinutes = 58,
-        iSeconds = 23,
-        offset = 300;
-    const nowTimestamp = iHours * 60 + iMinutes;
+    let offset = -(new Date().getTimezoneOffset());
+
+    const [nowTimestamp, setNowTimestamp] = useState<number>(0);
+    const [iSeconds, setISeconds] = useState<number>(0);
+    const [dayOfWeek, setDayOfWeek] = useState<number>(0);
+    useLayoutEffect(() => {
+        const intervalId = setInterval(() => {
+            const date = new Date();
+            setNowTimestamp(date.getHours() * 60 + date.getMinutes());
+            setISeconds(date.getSeconds());
+
+            let day = date.getDay() + 1;
+            if (day === 7) day = 0;
+            setDayOfWeek(day);
+        }, 1000);
+        return () => clearInterval(intervalId);
+    }, [setNowTimestamp, setISeconds, setDayOfWeek]);
+
+    // const nowTimestamp = iHours * 60 + iMinutes;
     console.log("nowTimestamp", nowTimestamp)
 
     // Костыль
@@ -90,7 +103,7 @@ export const Schedule = () => {
         }
 
     }
-
+    console.log(secondTimerNaming, secondTimerTime)
     return (
         <div className="schedule_page">
             <div className="schedule_top">
