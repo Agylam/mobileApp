@@ -1,0 +1,19 @@
+div.timer {
+    background: var(--blue-light);
+    border-radius: 1.75rem;
+    padding: 1rem 1.5rem;
+    margin: 2rem 0;
+
+    p {
+        color: #fff;
+    }
+
+    p.timer_name {
+        font-weight: 300;
+        margin-top: 0.5rem;
+    }
+
+    p.estimated_time {
+
+    }
+}
