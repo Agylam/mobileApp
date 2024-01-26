@@ -3,24 +3,34 @@ div.auth_form {
     flex-direction: column;
     width: 23rem;
 
-    input {
-        width: 21rem;
-        margin-top: 1rem;
+    form#auth {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
 
-        &:first-child {
-            margin-top: 4.5vh;
+        input {
+            width: 21rem;
+            margin-top: 1rem;
+            max-width: 80vw;
+
+            &:first-child {
+                margin-top: 4.5vh;
+            }
+        }
+
+        button {
+            border: none;
+            max-width: 88vw;
+            margin-top: 1.25rem;
         }
     }
 
-    button {
-        border: none;
-        margin: 3% 0;
-    }
 
     div.auth_links {
         width: 100%;
         display: flex;
         justify-content: space-evenly;
+        margin-top: 2rem;
 
         a.auth_link {
             text-decoration: none;
