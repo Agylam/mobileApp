@@ -72,13 +72,13 @@ export const Schedule = () => {
             if (index === schedule_timestamp.length - 1) return true;
             return lesson.start_timestamp <= nowTimestamp && schedule_timestamp[index + 1].start_timestamp > nowTimestamp;
         })
-    }, [schedule_timestamp]);
+    }, [schedule_timestamp, nowTimestamp]);
     console.log("index_lesson", index_lesson)
 
     const isLessonEnded = useMemo(() => {
         if (schedule_timestamp === null || index_lesson === null) return null;
         return nowTimestamp >= schedule_timestamp[index_lesson].end_timestamp;
-    }, [schedule_timestamp, index_lesson]);
+    }, [schedule_timestamp, index_lesson, nowTimestamp]);
     console.log("isLessonEnded", isLessonEnded)
 
 
