@@ -3,14 +3,18 @@ import "./Main.scss"
 import {AuthForm} from "../../components/AuthForm/AuthForm.tsx";
 import {useUserInfo} from "../../hooks/useUserInfo.ts";
 import {useNavigate} from "react-router";
+import {useEffect} from "react";
 
 export const Main = () => {
     const navigate = useNavigate();
 
     const userInfo = useUserInfo();
-    if (userInfo !== null) {
-        navigate("/schedule");
-    }
+    useEffect(() => {
+        if (userInfo !== null) {
+            navigate("/schedule");
+        }
+    }, []);
+
     return (
         <div className="main_page">
             <FullLogo/>

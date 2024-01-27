@@ -64,7 +64,6 @@ export const Schedule = () => {
             }
         }).sort((a, b) => a.start_timestamp - b.start_timestamp)
     }, [schedule.data, schedule.error, schedule.isLoading, offset]);
-    console.log("schedule_timestamp", schedule_timestamp);
 
     const index_lesson = useMemo(() => {
         if (schedule_timestamp === null) return null;
@@ -73,13 +72,11 @@ export const Schedule = () => {
             return lesson.start_timestamp <= nowTimestamp && schedule_timestamp[index + 1].start_timestamp > nowTimestamp;
         })
     }, [schedule_timestamp, nowTimestamp]);
-    console.log("index_lesson", index_lesson)
 
     const isLessonEnded = useMemo(() => {
         if (schedule_timestamp === null || index_lesson === null) return null;
         return nowTimestamp >= schedule_timestamp[index_lesson].end_timestamp;
     }, [schedule_timestamp, index_lesson, nowTimestamp]);
-    console.log("isLessonEnded", isLessonEnded)
 
 
     let firstTimerTime, secondTimerTime, firstTimerNaming, secondTimerNaming;
@@ -103,7 +100,10 @@ export const Schedule = () => {
         }
 
     }
-    console.log(secondTimerNaming, secondTimerTime)
+    // console.log("schedule_timestamp", schedule_timestamp);
+    // console.log("index_lesson", index_lesson)
+    // console.log("isLessonEnded", isLessonEnded)
+    // console.log(secondTimerNaming, secondTimerTime)
     return (
         <div className="schedule_page">
             <div className="schedule_top">
